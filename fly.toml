@@ -1,0 +1,23 @@
+# fly.toml app configuration file generated for crypto-explorer-java on 2025-03-30T03:57:31+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'crypto-explorer-java'
+primary_region = 'arn'
+
+[build]
+  dockerfile = 'Dockerfile'
+
+[http_service]
+  internal_port = 3001
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
